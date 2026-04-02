@@ -10,7 +10,14 @@ const recordRoutes = require("./routes/recordRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 
 const app = express();
-
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "Finance Dashboard API",
+    version: "1.0.0",
+    docs: "/api/auth, /api/users, /api/records, /api/dashboard"
+  })
+})
 // JSON Parser with invalid JSON handling
 app.use(express.json({
   verify: (req, res, buf, encoding) => {
